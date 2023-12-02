@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  sqldata:
+      volumes:
+        - ./db:/var/opt/mssql/data 
+      image: mcr.microsoft.com/mssql/server:2019-latest
+      environment:
+          - SA_PASSWORD=Bahriddin#2003
+          - ACCEPT_EULA=Y
+      ports:
+          - "1450:1433"
+
+  najot.api:
+    image: ${DOCKER_REGISTRY-}najotapi
+    build:
+      context: .
+      dockerfile: src/Najot.API/Dockerfile
+    ports:
+      - "80" 
+
+  getaway.api:
+    image: ${DOCKER_REGISTRY-}getawayapi
+    build:
+      context: .
+      dockerfile: src/Getaway.API/Dockerfile
+    ports:
+      - "80" 
+

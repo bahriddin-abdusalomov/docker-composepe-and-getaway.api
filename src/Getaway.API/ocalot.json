@@ -1,0 +1,29 @@
+{
+  "Routes": [
+    //UserController
+    {
+      "UpstreamPathTemplate": "/GetAll",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "najot.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Users/GetAll"
+    },
+    {
+      "UpstreamPathTemplate": "/api/Users/Create",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "najot.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Users/Create"
+    }
+  ]
+}
